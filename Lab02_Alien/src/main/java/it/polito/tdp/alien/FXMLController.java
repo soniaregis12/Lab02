@@ -46,6 +46,7 @@ public class FXMLController {
     
     @FXML
     void doReset(ActionEvent event) {
+    	this.model.resetta();
     	txtRisultato.clear(); 
     }
     
