@@ -37,5 +37,9 @@ public class AlienDictionary {
 			return null;
 		}
 	}
+	
+	public void deleteAll() {
+		this.dizionario.clear();
+	}
 
 }
