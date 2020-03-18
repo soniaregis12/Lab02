@@ -22,6 +22,9 @@ public class AlienDictionary {
 		for(Word w : this.dizionario) {
 			if(w.getAlienWord().equals(alienWord)) {
 				return w;
+			}else{
+				
+				
 			}
 		}
 		return null;
@@ -29,15 +32,25 @@ public class AlienDictionary {
 	
 	public String translateWord(String alienWord) {
 		
-		Word w = cercaWord(alienWord);
-		
-		if(w != null) {
-			return w.getTranslation();
+		if(cercaWord(alienWord) != null) {
+			return cercaWord(alienWord).getTranslation();
 		}else {
 			return null;
 		}
 	}
 	
+	public String translateWord(String alienWord, int pos) {
+		String sub1 = alienWord.substring(0, pos);
+		String sub2 = alienWord.substring(pos+1);
+		
+		for(Word w : this.dizionario) {
+			if(w.getAlienWord().substring(0,pos).equals(sub1) && w.getAlienWord().substring(pos+1).equals(sub2) && w.getAlienWord().length() == alienWord.length() )  {
+				return w.getTranslation();
+			}
+		}
+		return null;
+	}
+
 	public void deleteAll() {
 		this.dizionario.clear();
 	}
